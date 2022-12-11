@@ -1,0 +1,23 @@
+{
+  "name": "grid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prettier.config.js",
+  "dependencies": {
+    "canvas-sketch": "^0.7.6",
+    "canvas-sketch-util": "^1.10.0",
+    "tsify": "^5.0.4",
+    "tweakpane": "^3.1.1",
+    "typescript": "^4.9.3"
+  },
+  "scripts": {
+    "start": "npx canvas-sketch-cli sketch.ts --open -- -p [ tsify --noImplicitAny ]",
+    "export-video": "rm -rf media/* && mv /home/parrot/Downloads/* media/ && npm run combine-frames",
+    "combine-frames": "ffmpeg -framerate 60 -pattern_type glob -i 'media/*.png' -c:v libx264 -pix_fmt yuv420p output/out.mp4"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.11"
+  }
+}
